@@ -1,1 +1,1 @@
-More classes and objects as well as static and class methods
+Learning about classes, objects, classmethods and staticmethods
