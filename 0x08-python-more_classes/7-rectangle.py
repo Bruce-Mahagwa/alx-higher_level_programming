@@ -25,7 +25,7 @@ class Rectangle:
         type(self).number_of_instances += 1
     def __del__(self):
         """Prints a message when an instance gets deleted"""
-        print("Bye Rectangle . . .")
+        print("Bye rectangle...")
         type(self).number_of_instances -= 1
     @property
     def width(self):
