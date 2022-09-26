@@ -1,0 +1,64 @@
+``The 7-base-geometry model``
+============================
+
+``using integer_validator``
+---------------------------
+
+importing the function
+	>>> validator = __import__("7-base_geometry").BaseGeometry
+
+checking for module docstring
+	>>> m = __import__("7-base_geometry").__doc__
+	>>> len(m) > 1
+	True
+
+checking for class docstring
+	>>> f = __import__("7-base_geometry").BaseGeometry.__doc__
+	>>> len(f) > 1
+	True
+
+checking for method docstring
+	>>> j = __import__("7-base_geometry").BaseGeometry.integer_validator.__doc__
+	>>> len(j) > 1
+	True
+
+checking for area
+	>>> v = validator()
+	>>> v.area()
+	Traceback: (most recent call last):
+	...
+	Exception: area() is not implemented
+
+checking for integer_validator
+	>>> v.integer_validator("Bruce", 7)
+
+
+checking for wrong value type
+	>>> v.integer_validator("list", [1])
+	Traceback: (most recent call last):
+	...
+	Exception: list must be an integer
+	>>> v.integer_validator("tuple", (1, 2))
+	Traceback: (most recent call last):
+	...
+	Exception: tuple must be an integer
+	>>> v.integer_validator("dict", {"name": "Bruce"})
+	Traceback: (most recent call last):
+	...
+	Exception: dict must be an integer
+	>>> v.integer_validator("str", "Bruce")
+	Traceback: (most recent call last):
+	...
+	Exception: str must be an integer
+
+checking for value is equal to 0
+	>>> v.integer_validator("int", 0)
+	Traceback: (most recent call last):
+	...
+	Exception: int must be greater than 0
+
+checing for value less than 0
+	>>> v.integer_validator("int", -4)
+	Traceback: (most recent call last):
+	...
+	Exception: int must be greater than 0
