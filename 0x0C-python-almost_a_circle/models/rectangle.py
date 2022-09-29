@@ -35,17 +35,73 @@ class Rectangle(Base):
     @width.setter
     def width(self, value):
         """setter for width"""
+        if type(value) is not int:
+            raise TypeError("width must be an integer")
+        if value <= 0:
+            raise ValueError("width must be > 0")
         self.__width = value
+
     @height.setter
     def height(self, height):
         """setter for height"""
+        if type(height) is not int:
+            raise TypeError("height must be an integer")
+        if height <= 0:
+            raise ValueError("height must be > 0")
         self.__height = height
+
     @x.setter
     def x(self, x):
         """setter for x"""
+        if type(x) is not int:
+            raise TypeError("x must be an integer")
+        if x < 0:
+            raise ValueError("x must be >= 0")
         self.__x = x
+
     @y.setter
     def y(self, y):
         """setter for y"""
+        if type(y) is not int:
+            raise TypeError("y must be an integer")
+        if y < 0:
+            raise ValueError("y must be >= 0")
         self.__y = y
-
+    def area(self):
+        return self.width * self.height
+    def display(self):
+        string = (" " * self.__x) + "#" * self.__width;
+        for j in range(self.__height):
+            print(string)
+    def __str__(self):
+        return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.__x, self.__y, self.__width, self.__height)
+    def update(self, *args, **kwargs):
+        count = 0
+        if len(args):
+            for i in args:
+                count+=1
+                if count == 0:
+                    return
+                elif count == 1:
+                    self.id = args[0]
+                elif count == 2:
+                    self.__width = args[1]
+                elif count == 3:
+                    self.__height = args[2]
+                elif count == 4:
+                    self.__x = args[3]
+                else:
+                    self.__y = args[4]
+        else:
+            if kwargs is not None:
+                for k in kwargs:
+                    if k == "id":
+                        self.id = kwargs[k]
+                    elif k == "width":
+                        self.__width = kwargs[k]
+                    elif k == "height":
+                        self.__height = kwargs[k]
+                    elif k == "x":
+                        self.__x = kwargs[k]
+                    elif k == "y":
+                        self.__y = kwargs[k]
