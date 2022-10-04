@@ -67,6 +67,7 @@ class Rectangle(Base):
         if y < 0:
             raise ValueError("y must be >= 0")
         self.__y = y
+
     def area(self):
         """
         gets the area of the rect
@@ -75,6 +76,7 @@ class Rectangle(Base):
             area
         """
         return self.width * self.height
+
     def display(self):
         """displays the attr of the rect"""
         string = (" " * self.__x) + "#" * self.__width;
