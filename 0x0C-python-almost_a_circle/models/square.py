@@ -15,6 +15,7 @@ class Square(Rectangle):
         super().__init__(size, size, x, y, id)
         self.size = size
     def __str__(self):
+        """str representation of attr"""
         return "[Square] ({}) {}/{} - {}".format(self.id, self.x, self.y, self.size)
     @property
     def size(self):
@@ -55,5 +56,6 @@ class Square(Rectangle):
                     elif k == "y":
                         self.y = kwargs[k]
     def to_dictionary(self):
+        """dictionary representation of attr"""
         return {"id": self.id, "size": self.size, "x": self.x, "y": self.y}
 
