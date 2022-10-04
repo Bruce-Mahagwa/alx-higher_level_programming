@@ -105,3 +105,5 @@ class Rectangle(Base):
                         self.__x = kwargs[k]
                     elif k == "y":
                         self.__y = kwargs[k]
+    def to_dictionary(self):
+        return {"id": self.id, "width": self.width, "height": self.height, "x": self.x, "y": self.y}
