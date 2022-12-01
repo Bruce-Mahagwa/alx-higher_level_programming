@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-#selects states based on the condition that they begin with N
+# searches for a state using a query
 import sys
 import MySQLdb
 #dbs = MySQLdb.connect(host = "localhost", user = "root", passwd = "root", port = 3306, db = "hbtn_0e_0_usa")
@@ -9,7 +9,7 @@ if __name__ == "__main__":
     cur.execute("SELECT * FROM states ORDER BY id ASC")
     rows = cur.fetchall()
     for row in rows:
-        if (row[1][0] == "N"):
+        if (row[1] == sys.argv[4]):
             print(row)
     cur.close()
     dbs.close()
