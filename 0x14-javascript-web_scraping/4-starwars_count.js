@@ -5,9 +5,12 @@ const process = require("process");
 const ulr = process.argv[2];
 request(ulr, (err, res, body) => {
    const data = JSON.parse(body)
-   const arr =data.results.filter((item) => {
-      return item.characters.filter((actor) => {
-         return actor.includes("18")
-      })})
-	console.log(arr.length)
+   const arr = data.results. filter((item) => item)
+   const newArr = arr.filter((item) => {
+     if (item === "characters") {
+        return item.filter((actor) => {
+	   return actor.includes("18")})} }
+   )
+	console.log(newArr.length)
 })
+
